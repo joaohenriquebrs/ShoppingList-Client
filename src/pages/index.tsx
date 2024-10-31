@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
-import Header from 'components/header';
+import React from 'react';
 import {
   MainContainer,
   ContentContainer,
+  HeaderMainContent,
+  TitleMainContent,
 } from './style';
-import Image from 'next/image';
-import { } from 'react-icons/fa';
+import Header from 'components/header';
+import FormList from 'components/formList';
+import ListItems from 'components/listItems';
 
 export default function Home() {
 
@@ -13,7 +15,11 @@ export default function Home() {
     <MainContainer>
       <Header />
       <ContentContainer>
-
+        <HeaderMainContent>
+          <TitleMainContent>Lista de Compras</TitleMainContent>
+          <FormList />
+        </HeaderMainContent>
+        <ListItems />
       </ContentContainer>
     </MainContainer>
   );
