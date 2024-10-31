@@ -13,6 +13,9 @@ import {
     SelectAmountItem,
     OptionSelect,
     BlockPlusIconContent,
+    MobileResposiveness,
+    TopFormContainer,
+    BottomFormContainer
 } from './styles';
 import { PlusIcon } from 'assets';
 import CustomDropdownCategory from 'components/dropdownCategory';
@@ -34,42 +37,85 @@ export default function FormList() {
     };
 
     return (
-        <FormContainer>
-            <BlockItem>
-                <TitleBlockItem isFocused={focusStates.item}>Item</TitleBlockItem>
-                <InputNameItem
-                    isFocused={focusStates.item}
-                    onFocus={() => handleFocus('item')}
-                    onBlur={() => handleBlur('item')}
-                />
-            </BlockItem>
-            <BlockAmount>
-                <TitleBlockItem isFocused={focusStates.amount}>Quantidade</TitleBlockItem>
-                <BlockInputsAmount>
-                    <InputAmountItem
-                        isFocused={focusStates.amount}
-                        onFocus={() => handleFocus('amount')}
-                        onBlur={() => handleBlur('amount')}
+        <>
+            <FormContainer>
+                <BlockItem>
+                    <TitleBlockItem isFocused={focusStates.item}>Item</TitleBlockItem>
+                    <InputNameItem
+                        isFocused={focusStates.item}
+                        onFocus={() => handleFocus('item')}
+                        onBlur={() => handleBlur('item')}
                     />
-                    <SelectAmountItem
-                        isFocused={focusStates.amountSelect}
-                        onFocus={() => handleFocus('amountSelect')}
-                        onBlur={() => handleBlur('amountSelect')}
-                    >
-                        <OptionSelect value="Unidade">UN.</OptionSelect>
-                        <OptionSelect value="Litro">L</OptionSelect>
-                        <OptionSelect value="Quilograma">Kg</OptionSelect>
-                    </SelectAmountItem>
-                </BlockInputsAmount>
-            </BlockAmount>
-            <BlockCategory>
-                <CustomDropdownCategory />
-            </BlockCategory>
-            <BlockPlusIcon>
-                <BlockPlusIconContent>
-                    <Image src={PlusIcon} alt='Ícone de um símbolo de mais' />
-                </BlockPlusIconContent>
-            </BlockPlusIcon>
-        </FormContainer>
+                </BlockItem>
+                <BlockAmount>
+                    <TitleBlockItem isFocused={focusStates.amount}>Quantidade</TitleBlockItem>
+                    <BlockInputsAmount>
+                        <InputAmountItem
+                            isFocused={focusStates.amount}
+                            onFocus={() => handleFocus('amount')}
+                            onBlur={() => handleBlur('amount')}
+                        />
+                        <SelectAmountItem
+                            isFocused={focusStates.amountSelect}
+                            onFocus={() => handleFocus('amountSelect')}
+                            onBlur={() => handleBlur('amountSelect')}
+                        >
+                            <OptionSelect value="Unidade">UN.</OptionSelect>
+                            <OptionSelect value="Litro">L</OptionSelect>
+                            <OptionSelect value="Quilograma">Kg</OptionSelect>
+                        </SelectAmountItem>
+                    </BlockInputsAmount>
+                </BlockAmount>
+                <BlockCategory>
+                    <CustomDropdownCategory />
+                </BlockCategory>
+                <BlockPlusIcon>
+                    <BlockPlusIconContent>
+                        <Image src={PlusIcon} alt='Ícone de um símbolo de mais' />
+                    </BlockPlusIconContent>
+                </BlockPlusIcon>
+            </FormContainer>
+            <MobileResposiveness>
+                <TopFormContainer>
+                    <BlockItem>
+                        <TitleBlockItem isFocused={focusStates.item}>Item</TitleBlockItem>
+                        <InputNameItem
+                            isFocused={focusStates.item}
+                            onFocus={() => handleFocus('item')}
+                            onBlur={() => handleBlur('item')}
+                        />
+                    </BlockItem>
+                </TopFormContainer>
+                <BottomFormContainer>
+                    <BlockAmount>
+                        <TitleBlockItem isFocused={focusStates.amount}>Quantidade</TitleBlockItem>
+                        <BlockInputsAmount>
+                            <InputAmountItem
+                                isFocused={focusStates.amount}
+                                onFocus={() => handleFocus('amount')}
+                                onBlur={() => handleBlur('amount')}
+                            />
+                            <SelectAmountItem
+                                isFocused={focusStates.amountSelect}
+                                onFocus={() => handleFocus('amountSelect')}
+                                onBlur={() => handleBlur('amountSelect')}
+                            >
+                                <OptionSelect value="Unidade">UN.</OptionSelect>
+                                <OptionSelect value="Litro">L</OptionSelect>
+                                <OptionSelect value="Quilograma">Kg</OptionSelect>
+                            </SelectAmountItem>
+                        </BlockInputsAmount>
+                    </BlockAmount>
+                    <BlockCategory>
+                        <CustomDropdownCategory />
+                    </BlockCategory>
+                    <BlockPlusIcon>
+                        <BlockPlusIconContent>
+                            <Image src={PlusIcon} alt='Ícone de um símbolo de mais' />
+                        </BlockPlusIconContent>
+                    </BlockPlusIcon>
+                </BottomFormContainer>
+            </MobileResposiveness>
+        </>
     );
 }

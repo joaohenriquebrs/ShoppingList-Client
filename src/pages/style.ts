@@ -13,12 +13,16 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 50vw;
-  height: 100%;
+  height: 110%;
   padding-top: 88px;
   position: absolute;
   z-index: 2;
   color: #FFF;
   gap: 50px;
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 export const HeaderMainContent = styled.div`
@@ -31,4 +35,9 @@ export const TitleMainContent = styled.div`
   font-size: 24px;
   font-weight: bold;
   letter-spacing: 1.7px;
+
+  @media (max-width: 400px) {
+    font-size: 18px;
+  letter-spacing: 1px;
+  }
 `;

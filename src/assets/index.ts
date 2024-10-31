@@ -7,6 +7,7 @@ import MeatIcon from './meatIcon.png';
 import PlusIcon from './plusIcon.png';
 import VegetableIcon from './vegetableIcon.png';
 import DetailsItemIcon from './detailsItemIcon.png';
+import HeaderBackgroundMobile from './headerBackgroundMobile.png';
 
 
 export {
@@ -18,5 +19,6 @@ export {
     MeatIcon,
     PlusIcon,
     VegetableIcon,
-    DetailsItemIcon
+    DetailsItemIcon,
+    HeaderBackgroundMobile
 };
