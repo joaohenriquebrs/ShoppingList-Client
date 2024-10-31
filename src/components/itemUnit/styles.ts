@@ -124,4 +124,8 @@ export const CategoryItemName = styled.div<{ color?: string }>`
   font-size: 12px;
   letter-spacing: 0.4px;
   color: ${({ color }) => color || '#E07B67'};
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;

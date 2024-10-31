@@ -9,6 +9,10 @@ export const FormContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   gap: 12px;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const BlockItem = styled.div`
@@ -16,11 +20,15 @@ export const BlockItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 export const TitleBlockItem = styled.div<TitleBlockItemProps>`
-    font-size: 12px;
-    color: ${({ isFocused }) => (isFocused ? '#A881E6' : '#AFABB6')};
+  font-size: 12px;
+  color: ${({ isFocused }) => (isFocused ? '#A881E6' : '#AFABB6')};
 `;
 
 export const InputNameItem = styled.input<TitleBlockItemProps>`
@@ -41,6 +49,14 @@ export const BlockAmount = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 1000px) {
+    width: 36%;
+  }
+
+  @media (min-width: 400px) and (max-width: 600px) {
+    width: 40%;
+  }
 `;
 
 export const BlockInputsAmount = styled.div`
@@ -85,6 +101,22 @@ export const BlockCategory = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (min-width: 800px) and (max-width: 1000px) {
+    width: 50%;
+  }
+
+  @media (min-width: 500px) and (max-width: 800px) {
+    width: 46%;
+  }
+
+  @media (min-width: 400px) and (max-width: 500px) {
+    width: 40%;
+  }
+
+  @media (max-width: 400px) {
+    width: 43%;
+  }
 `;
 
 export const BlockPlusIcon = styled.div`
@@ -100,9 +132,36 @@ export const BlockPlusIconContent = styled.button`
   position: absolute;
   bottom: 0; 
   width: 40px;
-  border-radius: 99px;
   height: 40px;
+  border-radius: 99px;
   background: #7450AC;
   border: none;
   cursor: pointer;
+
+  @media (max-width: 400px) {
+    width: 36px;
+    height: 36px;
+  }
+`;
+
+/* Mobile Responsiveness */
+export const MobileResposiveness = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+`;
+
+export const TopFormContainer = styled.div`
+  width: 100%;
+`;
+
+export const BottomFormContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 15px;
 `;
