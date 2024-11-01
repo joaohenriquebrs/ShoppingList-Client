@@ -1,3 +1,4 @@
+// src/components/itemUnit/index.tsx
 import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import {
@@ -12,7 +13,14 @@ import {
     AmountItem,
     ConfigurationItemButton,
     CategoryItem,
-    CategoryItemName
+    CategoryItemName,
+    ModalOverlay,
+    ModalContainer,
+    ModalContent,
+    ModalText,
+    ModalButtonContainer,
+    CancelButton,
+    ConfirmButton
 } from './styles';
 import { DetailsItemIcon } from 'assets';
 
@@ -45,18 +53,34 @@ const categoryStyles: Record<string, CategoryItemProps> = {
 };
 
 interface ItemUnitProps {
+    id: string;
     name: string;
     amount: string;
     category: string;
     iconName: StaticImageData;
+    onDelete: (id: string) => void;
 }
 
-export default function ItemUnit({ name, amount, category, iconName }: ItemUnitProps) {
+export default function ItemUnit({ id, name, amount, category, iconName, onDelete }: ItemUnitProps) {
     const [isChecked, setIsChecked] = useState(false);
     const { background, color } = categoryStyles[category];
+    const [modalDelete, setModalDelete] = useState(false);
 
     const handleCheckboxChange = () => {
         setIsChecked((prev) => !prev);
+    };
+
+    const handleModalDelete = () => {
+        setModalDelete(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalDelete(false);
+    };
+
+    const handleConfirmDelete = () => {
+        onDelete(id);
+        setModalDelete(false);
     };
 
     return (
@@ -83,10 +107,24 @@ export default function ItemUnit({ name, amount, category, iconName }: ItemUnitP
                         {category.toLowerCase()}
                     </CategoryItemName>
                 </CategoryItem>
-                <ConfigurationItemButton>
+                <ConfigurationItemButton onClick={handleModalDelete}>
                     <Image src={DetailsItemIcon} alt='Ícone de três pontos na vertical' />
                 </ConfigurationItemButton>
             </RightContainer>
+
+            {modalDelete && (
+                <ModalOverlay>
+                    <ModalContainer>
+                        <ModalContent>
+                            <ModalText>Tem certeza que deseja apagar o item "{name}"?</ModalText>
+                            <ModalButtonContainer>
+                                <CancelButton onClick={handleCloseModal}>Cancelar</CancelButton>
+                                <ConfirmButton onClick={handleConfirmDelete}>Confirmar</ConfirmButton>
+                            </ModalButtonContainer>
+                        </ModalContent>
+                    </ModalContainer>
+                </ModalOverlay>
+            )}
         </ItemUnitContainer>
     );
 }

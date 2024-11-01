@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import api from 'services/api';
 import {
     ListItemsContainer
 } from './styles';
@@ -16,16 +18,40 @@ const iconMap: Record<IconName, StaticImageData> = {
     VegetableIcon,
 };
 
-const items = [
-    { id: 1, name: 'Maçã', amount: '2 unidades', category: 'FRUTA', iconName: 'FruitIcon' as IconName },
-    { id: 3, name: 'Pão Francês', amount: '1 unidade', category: 'PADARIA', iconName: 'BakaryIcon' as IconName },
-    { id: 4, name: 'Leite', amount: '1 unidade', category: 'BEBIDA', iconName: 'DrinkIcon' as IconName },
-    { id: 5, name: 'Brócolis', amount: '1 unidade', category: 'LEGUME', iconName: 'VegetableIcon' as IconName },
-    { id: 6, name: 'Peito de Frango', amount: '1 unidade', category: 'CARNE', iconName: 'MeatIcon' as IconName },
-    { id: 2, name: 'Mamão', amount: '1 unidade', category: 'FRUTA', iconName: 'FruitIcon' as IconName },
-];
+interface Item {
+    id: string;
+    name: string;
+    amount: string;
+    category: string;
+    iconName: IconName;
+}
 
 export default function ListItems() {
+    const [items, setItems] = useState<Item[]>([]);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/static/test.json');
+                setItems(response.data);
+            } catch (error) {
+                setError('Erro ao carregar os itens. Tente novamente mais tarde.');
+                console.error("chegou aqui", error);
+            }
+        };
+        fetchItems();
+    }, []);
+
+    const handleDeleteItem = (id: string) => {
+        setItems(prevItems => prevItems.filter(item => item.id !== id));
+        console.log(`Item ${id} deletado.`);
+    };
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <ListItemsContainer>
             {items.map(item => {
@@ -33,10 +59,12 @@ export default function ListItems() {
                 return (
                     <ItemUnit
                         key={item.id}
+                        id={item.id}
                         name={item.name}
                         amount={item.amount}
                         category={item.category}
                         iconName={IconComponent}
+                        onDelete={handleDeleteItem}
                     />
                 );
             })}
