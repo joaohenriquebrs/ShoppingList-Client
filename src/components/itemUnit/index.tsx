@@ -1,4 +1,3 @@
-// src/components/itemUnit/index.tsx
 import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import {
@@ -22,7 +21,7 @@ import {
     CancelButton,
     ConfirmButton
 } from './styles';
-import { DetailsItemIcon } from 'assets';
+import { DetailsItemIcon, FruitIcon, BakaryIcon, DrinkIcon, MeatIcon, VegetableIcon } from 'assets';
 
 interface CategoryItemProps {
     background?: string;
@@ -57,14 +56,54 @@ interface ItemUnitProps {
     name: string;
     amount: string;
     category: string;
-    iconName: StaticImageData;
+    unit: string;
     onDelete: (id: string) => void;
 }
 
-export default function ItemUnit({ id, name, amount, category, iconName, onDelete }: ItemUnitProps) {
+export default function ItemUnit({ id, name, amount, category, unit, onDelete }: ItemUnitProps) {
     const [isChecked, setIsChecked] = useState(false);
     const { background, color } = categoryStyles[category];
     const [modalDelete, setModalDelete] = useState(false);
+
+    let currentIcon: StaticImageData;
+
+    switch (category) {
+        case 'FRUTA':
+            currentIcon = FruitIcon;
+            break;
+        case 'PADARIA':
+            currentIcon = BakaryIcon;
+            break;
+        case 'LEGUME':
+            currentIcon = VegetableIcon;
+            break;
+        case 'BEBIDA':
+            currentIcon = DrinkIcon;
+            break;
+        case 'CARNE':
+            currentIcon = MeatIcon;
+            break;
+        default:
+            currentIcon = FruitIcon;
+            break;
+    }
+
+    let unitAdjusted;
+
+    switch (unit) {
+        case 'Unidade':
+            unitAdjusted = 'unidades';
+            break;
+        case 'Litro':
+            unitAdjusted = 'litros';
+            break;
+        case 'Quilograma':
+            unitAdjusted = 'kg';
+            break;
+        default:
+            unitAdjusted = 'unidades';
+            break;
+    }
 
     const handleCheckboxChange = () => {
         setIsChecked((prev) => !prev);
@@ -97,12 +136,12 @@ export default function ItemUnit({ id, name, amount, category, iconName, onDelet
                 </CheckBoxContainer>
                 <DetailsItem>
                     <NameItem isChecked={isChecked}>{name}</NameItem>
-                    <AmountItem>{amount}</AmountItem>
+                    <AmountItem>{amount.toLowerCase()} {unitAdjusted}</AmountItem>
                 </DetailsItem>
             </LeftContainer>
             <RightContainer>
                 <CategoryItem background={background} color={color}>
-                    <Image src={iconName} alt={`Ícone representando ${category.toLowerCase()}`} />
+                    <Image src={currentIcon} alt={`Ícone representando ${category.toLowerCase()}`} />
                     <CategoryItemName color={color}>
                         {category.toLowerCase()}
                     </CategoryItemName>

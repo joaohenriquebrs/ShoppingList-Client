@@ -26,6 +26,28 @@ import {
 } from './styles';
 import { PlusIcon } from 'assets';
 import CustomDropdownCategory from 'components/dropdownCategory';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+
+// Configuração do Firebase
+const firebaseApp = initializeApp({
+    apiKey: "AIzaSyDkoDawLnT2yAsh4aFfz89y3WyDj_yn6BQ",
+    authDomain: "shoppinglistserver-87151.firebaseapp.com",
+    projectId: "shoppinglistserver-87151",
+    storageBucket: "shoppinglistserver-87151.firebasestorage.app",
+    messagingSenderId: "456293514501",
+    appId: "1:456293514501:web:2ca83f5eda3dbab6bccb6c"
+});
+
+type Category = 'FRUTA' | 'PADARIA' | 'BEBIDA' | 'CARNE' | 'LEGUME';
+
+const categoryIconMap: Record<Category, string> = {
+    FRUTA: 'FruitIcon',
+    PADARIA: 'BakeryIcon',
+    BEBIDA: 'DrinkIcon',
+    CARNE: 'MeatIcon',
+    LEGUME: 'VegetableIcon',
+};
 
 export default function FormList() {
     const [focusStates, setFocusStates] = useState({
@@ -37,11 +59,13 @@ export default function FormList() {
     const [item, setItem] = useState('');
     const [amount, setAmount] = useState('');
     const [unit, setUnit] = useState('Unidade');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState<Category | ''>('');
     const [itemError, setItemError] = useState(false);
     const [amountError, setAmountError] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [showModal, setShowModal] = useState(false);
+    const db = getFirestore(firebaseApp);
+    const itemsCollectionRef = collection(db, 'items');
 
     const handleFocus = (field: string) => {
         setFocusStates((prev) => ({ ...prev, [field]: true }));
@@ -51,7 +75,7 @@ export default function FormList() {
         setFocusStates((prev) => ({ ...prev, [field]: false }));
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         if (!item || !amount || !category) {
             setModalMessage('Por favor, preencha todos os campos.');
             setShowModal(true);
@@ -59,24 +83,34 @@ export default function FormList() {
         }
 
         const data = {
-            item,
+            name: item,
             amount,
             unit,
             category
         };
 
-        console.log(data);
-        setModalMessage('Produto adicionado à lista.');
-        setShowModal(true);
+        try {
+            await addDoc(itemsCollectionRef, data);
+            setModalMessage('Produto adicionado à lista.');
+            setShowModal(true);
+            setItem('');
+            setAmount('');
+            setUnit('Unidade');
+            setCategory('');
+        } catch (error) {
+            console.error('Erro ao adicionar o item:', error);
+            setModalMessage('Erro ao adicionar o item. Tente novamente mais tarde.');
+            setShowModal(true);
+        }
     };
 
     const handleCategorySelect = (value: string) => {
-        setCategory(value);
+        setCategory(value as Category);
     };
 
     const handleItemChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        if (/^[A-Za-z\s]*$/.test(value)) {
+        if (/^[A-Za-zÀ-ÿ\s.,'!]*$/.test(value)) {
             setItem(value);
             setItemError(false);
         } else {
