@@ -20,7 +20,11 @@ const categories = [
     { label: 'Bebida', value: 'BEBIDA', icon: DrinkIcon },
 ];
 
-export default function CustomDropdownCategory() {
+interface CustomDropdownCategoryProps {
+    onSelectCategory: (value: string) => void;
+}
+
+export default function CustomDropdownCategory({ onSelectCategory }: CustomDropdownCategoryProps) {
     const [selectedValue, setSelectedValue] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -28,6 +32,7 @@ export default function CustomDropdownCategory() {
     const handleSelect = (value: string) => {
         setSelectedValue(value);
         setIsOpen(false);
+        onSelectCategory(value);
     };
 
     useEffect(() => {

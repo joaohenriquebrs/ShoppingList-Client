@@ -129,3 +129,71 @@ export const CategoryItemName = styled.div<{ color?: string }>`
     display: none;
   }
 `;
+
+export const ModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+`;
+
+export const ModalContainer = styled.div`
+    background: #17171A;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+`;
+
+export const ModalContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`;
+
+export const ModalText = styled.p`
+    font-size: 1rem;
+    color: #FFF;
+    margin-bottom: 20px;
+`;
+
+export const ModalButtonContainer = styled.div`
+    display: flex;
+    gap: 10px;
+`;
+
+export const CancelButton = styled.button`
+    background: #ddd;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background: #bbb;
+    }
+`;
+
+export const ConfirmButton = styled.button`
+    background: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background: #c9302c;
+    }
+`;
