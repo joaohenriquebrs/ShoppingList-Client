@@ -7,7 +7,8 @@ export const DropdownContainer = styled.div<{ isOpen: boolean }>`
   cursor: pointer;
   background: #17171A;
   border: 1px solid ${({ isOpen }) => (isOpen ? '#A881E6' : '#252529')};
-  border-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   padding: 10px;
   color: #AFABB6;
   transition: 0.4s ease; 

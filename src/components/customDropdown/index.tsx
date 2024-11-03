@@ -11,7 +11,7 @@ import {
     TitleBlockItem
 } from './styles';
 import { ArrowDownIcon } from 'assets';
-import { Option, CustomDropdownProps } from 'services/interfaces';
+import { CustomDropdownProps } from 'services/interfaces';
 
 export default function CustomDropdown({
     title,

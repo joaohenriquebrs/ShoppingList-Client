@@ -73,21 +73,24 @@ export const NameItem = styled.div<{ isChecked: boolean }>`
   font-weight: ${({ isChecked }) => (isChecked ? '400' : '700')};
   color: #FBF9FE;
   letter-spacing: 0.4px;
-  position: relative;
+`;
 
-  // &::before {
-  //     content: '';
-  //     position: absolute;
-  //     left: 0;
-  //     top: 50%;
-  //     transform: translateY(-50%);
-  //     width: 100%;
-  //     height: 1px;
-  //     background-color: white;
-  //     z-index: -1;
-  //     opacity: ${({ isChecked }) => (isChecked ? '1' : '0')};
-  //     transition: 0.4s ease;
-  // }
+export const BlockTrace = styled.div<{ isChecked: boolean }>`
+  display: inline-block;
+  position: relative; 
+
+  &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0; /* Define que o traço termina no final do conteúdo */
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background-color: white;
+      opacity: ${({ isChecked }) => (isChecked ? '1' : '0')};
+      transition: 0.4s ease;
+  }
 `;
 
 export const AmountItem = styled.div`

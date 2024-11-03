@@ -20,7 +20,8 @@ import {
     ModalButtonContainer,
     CancelButton,
     ConfirmButton,
-    InputEditItem
+    InputEditItem,
+    BlockTrace
 } from './styles';
 import { DetailsItemIcon, FruitIcon, BakaryIcon, DrinkIcon, MeatIcon, VegetableIcon } from 'assets';
 import { Item, CategoryItemProps, ItemUnitProps } from 'services/interfaces';
@@ -113,7 +114,11 @@ export default function ItemUnit({ id, name, amount, category, unit, onDelete, o
                         <Label htmlFor={`customCheckbox-${name}`}></Label>
                     </CheckBoxContainer>
                     <DetailsItem>
-                        <NameItem isChecked={isChecked}>{name}</NameItem>
+                        <NameItem isChecked={isChecked}>
+                            <BlockTrace isChecked={isChecked}>
+                                {name}
+                            </BlockTrace>
+                        </NameItem>
                         <AmountItem>{amount.toLowerCase()} {unitAdjusted}</AmountItem>
                     </DetailsItem>
                 </LeftContainer>

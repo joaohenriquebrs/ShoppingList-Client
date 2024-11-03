@@ -132,7 +132,7 @@ export const ErrorMessage = styled.div`
   color: red;
   font-size: 10px;
   position: absolute;
-  top: 27.2%;
+  top: 215px;
 `;
 
 
