@@ -1,44 +1,44 @@
 [
-    {
-        "id": "1",
-        "name": "Maçã",
-        "amount": "2 unidades",
-        "category": "FRUTA",
-        "iconName": "FruitIcon"
-    },
-    {
-        "id": "2",
-        "name": "Mamão",
-        "amount": "1 unidade",
-        "category": "FRUTA",
-        "iconName": "FruitIcon"
-    },
-    {
-        "id": "3",
-        "name": "Pão Francês",
-        "amount": "1 unidade",
-        "category": "PADARIA",
-        "iconName": "BakaryIcon"
-    },
-    {
-        "id": "4",
-        "name": "Leite",
-        "amount": "1 unidade",
-        "category": "BEBIDA",
-        "iconName": "DrinkIcon"
-    },
-    {
-        "id": "5",
-        "name": "Brócolis",
-        "amount": "1 unidade",
-        "category": "LEGUME",
-        "iconName": "VegetableIcon"
-    },
-    {
-        "id": "6",
-        "name": "Peito de Frango",
-        "amount": "1 unidade",
-        "category": "CARNE",
-        "iconName": "MeatIcon"
-    }
+  {
+    "id": "1",
+    "name": "Maçã",
+    "amount": "2 unidades",
+    "category": "FRUTA",
+    "iconName": "FruitIcon"
+  },
+  {
+    "id": "2",
+    "name": "Mamão",
+    "amount": "1 unidade",
+    "category": "FRUTA",
+    "iconName": "FruitIcon"
+  },
+  {
+    "id": "3",
+    "name": "Pão Francês",
+    "amount": "1 unidade",
+    "category": "PADARIA",
+    "iconName": "BakaryIcon"
+  },
+  {
+    "id": "4",
+    "name": "Leite",
+    "amount": "1 unidade",
+    "category": "BEBIDA",
+    "iconName": "DrinkIcon"
+  },
+  {
+    "id": "5",
+    "name": "Brócolis",
+    "amount": "1 unidade",
+    "category": "LEGUME",
+    "iconName": "VegetableIcon"
+  },
+  {
+    "id": "6",
+    "name": "Peito de Frango",
+    "amount": "1 unidade",
+    "category": "CARNE",
+    "iconName": "MeatIcon"
+  }
 ]

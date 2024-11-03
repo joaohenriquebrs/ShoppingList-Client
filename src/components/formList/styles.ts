@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { TitleBlockItemProps } from "services/interfaces";
+import styled from 'styled-components';
+import { TitleBlockItemProps } from 'services/interfaces';
 
 export const FormContainer = styled.div`
   display: flex;
@@ -29,17 +29,16 @@ export const TitleBlockItem = styled.div<TitleBlockItemProps>`
 `;
 
 export const InputNameItem = styled.input<TitleBlockItemProps>`
-    background: #111112;
-    border: 1px solid ${({ isFocused }) => (isFocused ? '#A881E6' : '#252529')};
-    border-radius: 6px;
-    width: 100%;
-    height: 40px;
-    color: #FFF;
-    padding: 0px 8px;
-    outline: none; 
-    transition: border-color 0.4s ease; 
+  background: #111112;
+  border: 1px solid ${({ isFocused }) => (isFocused ? '#A881E6' : '#252529')};
+  border-radius: 6px;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  padding: 0px 8px;
+  outline: none;
+  transition: border-color 0.4s ease;
 `;
-
 
 export const BlockAmount = styled.div`
   width: 24%;
@@ -70,10 +69,10 @@ export const InputAmountItem = styled.input<TitleBlockItemProps>`
   border-bottom-left-radius: 6px;
   width: 52%;
   height: 40px;
-  color: #FFF;
+  color: #fff;
   padding: 0px 8px;
-  outline: none; 
-  transition: border-color 0.4s ease; 
+  outline: none;
+  transition: border-color 0.4s ease;
 `;
 
 export const BlockCategory = styled.div`
@@ -102,7 +101,7 @@ export const BlockCategory = styled.div`
 export const BlockPlusIcon = styled.div`
   display: flex;
   width: 5%;
-  position: relative; 
+  position: relative;
 `;
 
 export const ButtonPlusIconContent = styled.button`
@@ -110,16 +109,16 @@ export const ButtonPlusIconContent = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 0; 
+  bottom: 0;
   width: 40px;
   height: 40px;
   border-radius: 99px;
-  background: #7450AC;
+  background: #7450ac;
   border: none;
   cursor: pointer;
 
   &:hover {
-      background: #6E4CA3;
+    background: #6e4ca3;
   }
 
   @media (max-width: 400px) {
@@ -134,7 +133,6 @@ export const ErrorMessage = styled.div`
   position: absolute;
   top: 215px;
 `;
-
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -156,15 +154,15 @@ export const ModalContainer = styled.div`
   width: 30%;
   padding: 20px;
   animation: fadeIn 0.3s ease;
-  
+
   @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-20px);
+      opacity: 0;
+      transform: translateY(-20px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -186,7 +184,7 @@ export const ModalContent = styled.div`
 export const ModalText = styled.p`
   margin-bottom: 20px;
   font-size: 16px;
-  color: #7450AC;
+  color: #7450ac;
   text-align: center;
 `;
 
@@ -198,20 +196,20 @@ export const ModalButtonContainer = styled.div`
 
 export const CancelButton = styled.button`
   background-color: transparent;
-  border: 1px solid #7450AC;
-  color: #7450AC;
+  border: 1px solid #7450ac;
+  color: #7450ac;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover {
-      background-color: #7450AC;
-      color: white;
+    background-color: #7450ac;
+    color: white;
   }
 `;
-
-
 
 /* Mobile Responsiveness */
 export const MobileResposiveness = styled.div`

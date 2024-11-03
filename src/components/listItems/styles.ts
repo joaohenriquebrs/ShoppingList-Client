@@ -17,7 +17,7 @@ export const ButtonDeleteSelected = styled.button`
   cursor: pointer;
 
   &:hover {
-      background: #c9302c;
+    background: #c9302c;
   }
 `;
 
@@ -41,15 +41,15 @@ export const ModalContainer = styled.div`
   width: 30%;
   padding: 20px;
   animation: fadeIn 0.3s ease;
-  
+
   @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-20px);
+      opacity: 0;
+      transform: translateY(-20px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -71,7 +71,7 @@ export const ModalContent = styled.div`
 export const ModalText = styled.p`
   margin-bottom: 20px;
   font-size: 16px;
-  color: #7450AC;
+  color: #7450ac;
   text-align: center;
 `;
 
@@ -83,15 +83,17 @@ export const ModalButtonContainer = styled.div`
 
 export const CancelButton = styled.button`
   background-color: transparent;
-  border: 1px solid #7450AC;
-  color: #7450AC;
+  border: 1px solid #7450ac;
+  color: #7450ac;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover {
-      background-color: #7450AC;
-      color: white;
+    background-color: #7450ac;
+    color: white;
   }
 `;

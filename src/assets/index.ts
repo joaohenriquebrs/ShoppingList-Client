@@ -9,16 +9,15 @@ import VegetableIcon from './vegetableIcon.png';
 import DetailsItemIcon from './detailsItemIcon.png';
 import HeaderBackgroundMobile from './headerBackgroundMobile.png';
 
-
 export {
-    HeaderBackground,
-    ArrowDownIcon,
-    BakaryIcon,
-    DrinkIcon,
-    FruitIcon,
-    MeatIcon,
-    PlusIcon,
-    VegetableIcon,
-    DetailsItemIcon,
-    HeaderBackgroundMobile
+  HeaderBackground,
+  ArrowDownIcon,
+  BakaryIcon,
+  DrinkIcon,
+  FruitIcon,
+  MeatIcon,
+  PlusIcon,
+  VegetableIcon,
+  DetailsItemIcon,
+  HeaderBackgroundMobile
 };

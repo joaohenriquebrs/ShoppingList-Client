@@ -17,7 +17,7 @@ export const ContentContainer = styled.div`
   padding-top: 88px;
   position: absolute;
   z-index: 2;
-  color: #FFF;
+  color: #fff;
   gap: 50px;
 
   @media (max-width: 600px) {
@@ -38,6 +38,6 @@ export const TitleMainContent = styled.div`
 
   @media (max-width: 400px) {
     font-size: 18px;
-  letter-spacing: 1px;
+    letter-spacing: 1px;
   }
 `;

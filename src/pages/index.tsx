@@ -3,14 +3,13 @@ import {
   MainContainer,
   ContentContainer,
   HeaderMainContent,
-  TitleMainContent,
+  TitleMainContent
 } from './style';
 import Header from 'components/header';
 import FormList from 'components/formList';
 import ListItems from 'components/listItems';
 
 export default function ShoppingList() {
-
   return (
     <MainContainer>
       <Header />

@@ -1,17 +1,16 @@
 import styled from 'styled-components';
-import { TitleBlockItemProps } from 'services/interfaces';
 
 export const DropdownContainer = styled.div<{ isOpen: boolean }>`
   position: relative;
   width: 100%;
   cursor: pointer;
-  background: #17171A;
+  background: #17171a;
   border: 1px solid ${({ isOpen }) => (isOpen ? '#A881E6' : '#252529')};
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   padding: 10px;
-  color: #AFABB6;
-  transition: 0.4s ease; 
+  color: #afabb6;
+  transition: 0.4s ease;
 `;
 
 export const SelectedItem = styled.div`
@@ -22,7 +21,7 @@ export const SelectedItem = styled.div`
 `;
 
 export const TextMainSelect = styled.div`
-  color: #FFF;
+  color: #fff;
 `;
 
 export const DropdownList = styled.div`
@@ -30,7 +29,7 @@ export const DropdownList = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
-  background: #17171A;
+  background: #17171a;
   border: 1px solid #252529;
   border-radius: 6px;
   margin-top: 4px;
@@ -41,7 +40,7 @@ export const TextDropDownText = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #FFF;
+  color: #fff;
 `;
 
 export const DropdownListItem = styled.div`
@@ -56,10 +55,10 @@ export const DropdownListItem = styled.div`
 `;
 
 export const CheckSpan = styled.span`
-  color: #A881E6;
+  color: #a881e6;
 `;
 
-export const TitleBlockItem = styled.div <{ isOpen: boolean }> `
-    font-size: 12px;
-    color: ${({ isOpen }) => (isOpen ? '#A881E6' : '#AFABB6')};
+export const TitleBlockItem = styled.div<{ isOpen: boolean }>`
+  font-size: 12px;
+  color: ${({ isOpen }) => (isOpen ? '#A881E6' : '#AFABB6')};
 `;
