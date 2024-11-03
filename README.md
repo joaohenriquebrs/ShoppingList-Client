@@ -2,7 +2,7 @@
 
 ## Site Link:
 
-<a href="#" target="_blank">Shopping List</a>
+<a href="https://shopping-list-ten-roan.vercel.app/" target="_blank">Shopping List</a>
 
 ## Tools
 
@@ -44,3 +44,5 @@ http://localhost:3000
 # or
 http://localhost:3001
 ```
+
+Obs: para acessar a página de perfil, coloque /profilePage na frente do link https://shopping-list-ten-roan.vercel.app/. Faltam mais conteúdos na página, por isso não a defini como padrão e não criei um botão na lista de compras para direcionar a ela. O fim de semana foi corrido e não consegui pensar em ideias para implementar melhorias nesta página
