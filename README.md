@@ -46,3 +46,9 @@ http://localhost:3001
 ```
 
 Obs: para acessar a página de perfil, coloque /profilePage na frente do link https://shopping-list-ten-roan.vercel.app/. Faltam mais conteúdos na página, por isso não a defini como padrão e não criei um botão na lista de compras para direcionar a ela. O fim de semana foi corrido e não consegui pensar em ideias para implementar melhorias nesta página
+
+## Video show:
+
+https://github.com/user-attachments/assets/9727ebd3-b6d1-498c-9433-2ba3ea848799
+
+
