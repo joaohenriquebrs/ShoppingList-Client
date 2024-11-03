@@ -6,7 +6,7 @@ export const ListItemsContainer = styled.div`
 
 export const ButtonDeleteSelected = styled.button`
   position: absolute;
-  top: 29%;
+  top: 230px;
   right: 0%;
   background: #d9534f;
   color: #fff;

@@ -216,7 +216,7 @@ export default function FormList() {
                                 onBlur={() => handleBlur('amount')}
                             />
                             <CustomDropdown
-                                title="Unidade"
+                                title=""
                                 options={units}
                                 selectedValue={unit}
                                 onSelect={setUnit}
