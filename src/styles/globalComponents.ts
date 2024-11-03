@@ -1,23 +1,5 @@
 import styled from 'styled-components';
-
-interface TextProps {
-  size?: string;
-  align?: string;
-  bold?: boolean;
-  semiBold?: boolean;
-  medium?: boolean;
-  regular?: boolean;
-  primary?: boolean;
-  secondary?: boolean;
-  black?: boolean;
-  white?: boolean;
-  blue?: boolean;
-  margin?: string;
-  padding?: string;
-  width?: string;
-  alignSelf?: string;
-  opacity?: number;
-}
+import { TextProps } from 'services/interfaces';
 
 export const CustomText = styled.p<TextProps>`
   text-align: ${(props) => props.align || 'center'};

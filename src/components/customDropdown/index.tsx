@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import {
     DropdownContainer,
     SelectedItem,
@@ -10,69 +10,59 @@ import {
     TextDropDownText,
     TitleBlockItem
 } from './styles';
-import { BakaryIcon, VegetableIcon, MeatIcon, FruitIcon, DrinkIcon, ArrowDownIcon } from 'assets';
+import { ArrowDownIcon } from 'assets';
+import { Option, CustomDropdownProps } from 'services/interfaces';
 
-const categories = [
-    { label: 'Padaria', value: 'PADARIA', icon: BakaryIcon },
-    { label: 'Legume', value: 'LEGUME', icon: VegetableIcon },
-    { label: 'Carne', value: 'CARNE', icon: MeatIcon },
-    { label: 'Fruta', value: 'FRUTA', icon: FruitIcon },
-    { label: 'Bebida', value: 'BEBIDA', icon: DrinkIcon },
-];
-
-interface CustomDropdownCategoryProps {
-    onSelectCategory: (value: string) => void;
-}
-
-export default function CustomDropdownCategory({ onSelectCategory }: CustomDropdownCategoryProps) {
-    const [selectedValue, setSelectedValue] = useState<string>('');
+export default function CustomDropdown({
+    title,
+    options,
+    selectedValue,
+    onSelect,
+}: CustomDropdownProps) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
+    // Fecha o dropdown e registra o item selecionado
     const handleSelect = (value: string) => {
-        setSelectedValue(value);
+        onSelect(value);
         setIsOpen(false);
-        onSelectCategory(value);
     };
 
+    // Fecha o dropdown ao clicar fora dele
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
-
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [dropdownRef])
+    }, []);
 
     return (
         <>
-            <TitleBlockItem isOpen={isOpen}>Categoria</TitleBlockItem>
-
+            <TitleBlockItem isOpen={isOpen}>{title}</TitleBlockItem>
             <DropdownContainer ref={dropdownRef} isOpen={isOpen} onClick={() => setIsOpen((prev) => !prev)}>
                 <SelectedItem>
                     <TextMainSelect>
                         {selectedValue
-                            ? categories.find((item) => item.value === selectedValue)?.label
+                            ? options.find((item) => item.value === selectedValue)?.label
                             : 'Selecione'}
                     </TextMainSelect>
                     <Image src={ArrowDownIcon} alt='Ícone de uma seta apontada para baixo' />
                 </SelectedItem>
+
                 {isOpen && (
                     <DropdownList>
-                        {categories.map((category) => (
-                            <DropdownListItem
-                                key={category.value}
-                                onClick={() => handleSelect(category.value)}
-                            >
+                        {options.map((option) => (
+                            <DropdownListItem key={option.value} onClick={() => handleSelect(option.value)}>
                                 <TextDropDownText>
-                                    {category.icon && <Image src={category.icon} alt={category.label} width={16} height={16} />}
-                                    {category.label}
+                                    {option.icon && <Image src={option.icon} alt={option.label} width={16} height={16} />}
+                                    {option.label}
                                 </TextDropDownText>
-                                {category.value === selectedValue && <CheckSpan>✔</CheckSpan>}
+                                {option.value === selectedValue && <CheckSpan>✔</CheckSpan>}
                             </DropdownListItem>
                         ))}
                     </DropdownList>
