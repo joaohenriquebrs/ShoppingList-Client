@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-
-interface TitleBlockItemProps {
-  isFocused: boolean;
-}
+import { TitleBlockItemProps } from 'services/interfaces';
 
 export const DropdownContainer = styled.div<{ isOpen: boolean }>`
   position: relative;

@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-interface TitleBlockItemProps {
-  isFocused: boolean;
-}
+import { TitleBlockItemProps } from "services/interfaces";
 
 export const FormContainer = styled.div`
   display: flex;
@@ -79,23 +76,6 @@ export const InputAmountItem = styled.input<TitleBlockItemProps>`
   transition: border-color 0.4s ease; 
 `;
 
-export const SelectAmountItem = styled.select<TitleBlockItemProps>`
-  background: #17171A;
-  border: 1px solid ${({ isFocused }) => (isFocused ? '#A881E6' : '#252529')};
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  width: 48%;
-  height: 40px;
-  color: #AFABB6;
-  padding: 0px 8px;
-  cursor: pointer;
-  transition: border-color 0.4s ease; 
-`;
-
-export const OptionSelect = styled.option`
-  color: #AFABB6;
-`;
-
 export const BlockCategory = styled.div`
   width: 26%;
   display: flex;
@@ -137,6 +117,10 @@ export const ButtonPlusIconContent = styled.button`
   background: #7450AC;
   border: none;
   cursor: pointer;
+
+  &:hover {
+      background: #6E4CA3;
+  }
 
   @media (max-width: 400px) {
     width: 36px;

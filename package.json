@@ -30,13 +30,15 @@
     "@mui/material": "^5.14.13",
     "axios": "^1.6.2",
     "express": "^4.18.2",
+    "firebase": "^11.0.1",
     "next": "13.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.2.1",
     "sharp": "^0.32.6",
     "styled-components": "^6.1.1",
-    "styled-media-query": "^2.1.2"
+    "styled-media-query": "^2.1.2",
+    "uuid": "^11.0.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.5.6",

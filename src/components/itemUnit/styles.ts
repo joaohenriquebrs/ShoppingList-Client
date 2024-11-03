@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-
-interface CategoryItemProps {
-  background?: string;
-  color?: string;
-}
+import { CategoryItemProps } from 'services/interfaces';
 
 export const ItemUnitContainer = styled.div<{ isChecked: boolean }>`
   display: flex;
@@ -100,12 +96,13 @@ export const AmountItem = styled.div`
   letter-spacing: 0.4px;
 `;
 
-export const ConfigurationItemButton = styled.button`
+export const ConfigurationItemButton = styled.button<{ isDisabled?: boolean }>`
   display: flex;
   align-items: center;
   background: none;
-  cursor: pointer;
   border: none;
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.5 : 1)};
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
@@ -140,13 +137,13 @@ export const ModalOverlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 9999999;
 `;
 
 export const ModalContainer = styled.div`
     background: #17171A;
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -155,29 +152,33 @@ export const ModalContainer = styled.div`
 export const ModalContent = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
     align-items: center;
     text-align: center;
 `;
 
 export const ModalText = styled.p`
-    font-size: 1rem;
+    font-size: 22px;
     color: #FFF;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `;
 
 export const ModalButtonContainer = styled.div`
     display: flex;
     gap: 10px;
+    margin-top: 20px;
+    width: 100%;
 `;
 
 export const CancelButton = styled.button`
     background: #ddd;
     color: #000;
-    padding: 10px 20px;
+    padding: 10px 0px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 14px;
     cursor: pointer;
+    width: 50%;
 
     &:hover {
         background: #bbb;
@@ -185,15 +186,28 @@ export const CancelButton = styled.button`
 `;
 
 export const ConfirmButton = styled.button`
-    background: #d9534f;
+    background: #7450AC;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 14px;
     cursor: pointer;
+    width: 50%;
 
     &:hover {
-        background: #c9302c;
+        background: #6E4CA3;
     }
+`;
+
+export const InputEditItem = styled.input`
+  background: #111112;
+    border: 1px solid #252529;
+    border-radius: 6px;
+    width: 100%;
+    height: 40px;
+    color: #FFF;
+    padding: 0px 8px;
+    outline: none; 
+    transition: border-color 0.4s ease; 
 `;
